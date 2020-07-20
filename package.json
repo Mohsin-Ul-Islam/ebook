@@ -19,7 +19,7 @@
     "transpile": "tsc",
     "start": "node ./dist/index.js",
     "local": "node -r dotenv/config ./dist/index.js",
-    "prod": "npm-run-all transpile start",
+    "prod": "node ./dist/index.js",
     "dev": "npm-run-all transpile local"
   },
   "author": "Mohsin Ul Islam",

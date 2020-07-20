@@ -6,94 +6,111 @@
 </head>
 
 <body>
-    <%- include('../components/navigation') %>
 
-    <main class="main">
-        <section class="section container">
-            <article class="section__content">
-                <h1 class="section__heading">Lorem ispum dolor sit amet</h1>
-                <p class="section__caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor
-                    incididunt ut labore et dolore magna aliqua.</p>
-                <a href="#" class="btn btn--primary">Start now</a>
-            </article>
-            <figure class="section__figure">
-                <img src="/assets/images/hero_bg.svg" alt="">
-            </figure>
-        </section>
-        <section class="sequel section">
-            <article class="section__content container">
-                <h2 class="section__heading section__heading--withbar">Lorem ipsum dolor sit amet consectetur adipiscing
-                    elit</h2>
-                <p class="section__caption">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                    sunt
-                    in culpa qui officia deserunt mollit anim id est laborum."</p>
-            </article>
-        </section>
-        <section class="section container">
-            <figure class="section__figure">
-                <img src="/assets/images/advantages.svg" alt="">
-            </figure>
-            <article class="section__content">
-                <h2 class="section__heading section__heading--withbar">Our Advantages</h2>
-                <p class="section__caption">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-            </article>
-        </section>
-        <section class="section container">
-            <article class="section__content">
-                <h2 class="section__heading section__heading--withbar">Testimonials</h2>
-                <section class="section container">
-                    <article class="testimonial testimonial--active">
-                        <h3 class="testimonial__heading">&ldquo;Wow!&rdquo;</h3>
-                        <ul class="rating__list">
-                            <li class="rating__item"><img src="/assets/images/star.svg" alt=""></li>
-                            <li class="rating__item"><img src="/assets/images/star.svg" alt=""></li>
-                            <li class="rating__item"><img src="/assets/images/star.svg" alt=""></li>
-                            <li class="rating__item"><img src="/assets/images/star.svg" alt=""></li>
-                            <li class="rating__item"><img src="/assets/images/star.svg" alt=""></li>
-                        </ul>
-                        <p class="section__caption">
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                        </p>
-                        <div class="testimonial__controls">
-                            <a href="#" class="btn btn-ghost">Previous</a>
-                            <a href="#" class="btn btn--primary">Next</a>
-                        </div>
-                    </article>
-                    <figure class="section__figure">
-                        <img src="/assets/images/testimonials.svg" alt="">
-                    </figure>
-                </section>
-            </article>
-        </section>
-        <section class="section">
-            <article class="section__content section--last">
-                <h2 class="section__heading center">Lorem ipsum dolor sit amet</h2>
-                <p class="section__caption">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                <a href="#" class="btn btn--primary">Start now</a>
-            </article>
-        </section>
-    </main>
+    <%- include('../components/loader') %>
 
-    <%- include('../components/footer') %>
+    <div class="preload">
+
+        <%- include('../components/navigation') %>
+
+        <main class="main">
+            <section class="section container">
+                <article class="section__content">
+                    <h1 class="section__heading">Lorem ispum dolor sit amet</h1>
+                    <p class="section__caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor
+                        incididunt ut labore et dolore magna aliqua.</p>
+                    <a href="#" class="btn btn--primary">Start now</a>
+                </article>
+                <figure class="section__figure">
+                    <img src="/assets/images/hero_bg.svg" alt="">
+                </figure>
+            </section>
+            <section class="sequel section">
+                <article class="section__content container">
+                    <h2 class="section__heading section__heading--withbar">Lorem ipsum dolor sit amet consectetur
+                        adipiscing
+                        elit</h2>
+                    <p class="section__caption">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate
+                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident,
+                        sunt
+                        in culpa qui officia deserunt mollit anim id est laborum."</p>
+                </article>
+            </section>
+            <section class="section container">
+                <figure class="section__figure">
+                    <img src="/assets/images/advantages.svg" alt="">
+                </figure>
+                <article class="section__content">
+                    <h2 class="section__heading section__heading--withbar">Our Advantages</h2>
+                    <p class="section__caption">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    </p>
+                </article>
+            </section>
+            <section class="section container">
+                <article class="section__content">
+                    <h2 class="section__heading section__heading--withbar">Testimonials</h2>
+                    <section class="section container">
+                        <article class="testimonial testimonial--active">
+                            <h3 class="testimonial__heading">&ldquo;Wow!&rdquo;</h3>
+                            <ul class="rating__list">
+                                <li class="rating__item"><img src="/assets/images/star.svg" alt=""></li>
+                                <li class="rating__item"><img src="/assets/images/star.svg" alt=""></li>
+                                <li class="rating__item"><img src="/assets/images/star.svg" alt=""></li>
+                                <li class="rating__item"><img src="/assets/images/star.svg" alt=""></li>
+                                <li class="rating__item"><img src="/assets/images/star.svg" alt=""></li>
+                            </ul>
+                            <p class="section__caption">
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                                in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            </p>
+                            <div class="testimonial__controls">
+                                <a href="#" class="btn btn-ghost">Previous</a>
+                                <a href="#" class="btn btn--primary">Next</a>
+                            </div>
+                        </article>
+                        <figure class="section__figure">
+                            <img src="/assets/images/testimonials.svg" alt="">
+                        </figure>
+                    </section>
+                </article>
+            </section>
+            <section class="section">
+                <article class="section__content section--last">
+                    <h2 class="section__heading center">Lorem ipsum dolor sit amet</h2>
+                    <p class="section__caption">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    </p>
+                    <a href="#" class="btn btn--primary">Start now</a>
+                </article>
+            </section>
+        </main>
+
+        <%- include('../components/footer') %>
+    </div>
+
+    <script src="/scripts/main.js"></script>
+
 </body>
 
 </html>

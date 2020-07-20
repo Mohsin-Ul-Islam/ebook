@@ -6,6 +6,14 @@
     display: block;
 }
 
+.testimonial--float-left {
+    animation: float-left 0.7s ease-in;
+}
+
+.testimonial--float-right {
+    animation: float-right 0.7s ease-in;
+}
+
 .testimonial__heading {
     font-size: 2rem;
     font-weight: 600;

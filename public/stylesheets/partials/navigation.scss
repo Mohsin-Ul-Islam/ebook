@@ -37,6 +37,10 @@
     transition: transform 0.3s ease-out;
 }
 
+.nav__link:hover {
+    font-weight: bold;
+}
+
 .nav__link:hover:after {
     transform: scaleX(1);   
 }

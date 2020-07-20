@@ -3,6 +3,7 @@
     padding: 0.8rem 2rem;
     border-radius: 5px;
     font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .btn--primary {
@@ -10,10 +11,20 @@
     background-color: #F9A826;
 }
 
+.btn--primary:hover {
+    background-color: white;
+    color: #F9A826;
+    box-shadow: inset 0 0 0 2px #F9A826;
+}
+
 .btn-ghost {
     color: white;
     background-color:  #F9A826;
     opacity: 0.5;
+}
+
+.btn-ghost:hover {
+    opacity: 1;
 }
 
 

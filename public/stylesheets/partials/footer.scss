@@ -41,6 +41,10 @@
     transition: transform 0.3s ease-out;
 }
 
+.footer__link:hover {
+    font-weight: bold;
+}
+
 .footer__link:hover:after {
     transform: scaleX(1);   
 }

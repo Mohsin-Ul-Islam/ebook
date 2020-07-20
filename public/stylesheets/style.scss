@@ -12,9 +12,59 @@
 @import "partials/normalize";
 @import "partials/footer";
 @import "partials/navigation";
-@import "sections/hero";
+@import "sections/testimonial";
 @import "partials/buttons";
+@import "partials/rating.scss";
 
 body {
     color: var(--clr-bg);
+}
+
+.section {
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+}
+
+.section__heading {
+    position: relative;
+    font-weight: 600;
+    font-size: 4.5rem;
+    max-width: 80%;
+}
+
+.section__heading--withbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: 3px;
+    background-color: #F9A826;
+}
+
+.section__caption {
+    color: #3E373A;
+    margin: 1.5rem 0;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    max-width: 80%;
+    line-height: 1.6;
+}
+
+.section__figure {
+    min-width: 50%;
+}
+
+.center {
+    text-align: center;
+}
+
+.section--last {
+    max-width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

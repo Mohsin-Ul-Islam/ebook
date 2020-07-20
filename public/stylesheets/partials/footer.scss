@@ -1,6 +1,6 @@
 .footer {
     width: 100%;
-    height: 80px;
+    min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,16 +12,26 @@
     padding: 1.5rem 0;
     border-top:  1px solid rgba(62, 55, 58, 0.7);
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .footer__item {
-    margin-right: 1.5rem;
+    margin: 0.5rem 0;
 }
 
 .footer__link {
     color: var(--clr-grey);
     font-weight: 600;
+}
+
+@media screen and (min-width:540px) {
+    .footer__list {
+        justify-content: center;
+    }
+    .footer__item {
+        margin: 0 1.5rem;
+    }
 }

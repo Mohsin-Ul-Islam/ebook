@@ -6,18 +6,37 @@
     justify-content: space-between;
 }
 
+.nav-cta {
+    display: none;
+}
+
 .nav__list {
+    width: 100%;
     align-self: flex-end;
     display: flex;
     flex-direction: row;
     align-self: center;
-    justify-content: center;
-}
-
-.nav__item {
-    margin-right: 1.5rem;
+    justify-content: space-between;
 }
 
 .nav__link {
     color: #3E373A;
+}
+
+@media screen and (min-width:450px) {
+    .nav__list {
+        width: auto;
+    }
+    .nav__item {
+        margin-right: 1rem;
+    }
+    .nav-cta {
+        display: inline-block;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .nav__item {
+        margin-right: 1.5rem;
+    }
 }

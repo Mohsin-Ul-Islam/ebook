@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap');
+
+:root {
+
+    --ff-primary: "Poppins";
+    --ff-secondary: "Raleway";
+
+    --clr-bg: #E5E5E5;
+    --clr-grey: rgba(62, 55, 58, 0.82);
+}
+
+@import "partials/normalize";
+@import "partials/footer";
+@import "partials/navigation";
+@import "sections/hero";
+@import "partials/buttons";
+
+body {
+    color: var(--clr-bg);
+}

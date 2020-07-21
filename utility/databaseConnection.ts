@@ -3,7 +3,7 @@ import { Client } from 'pg';
 const clientInstance: Client = new Client(
     {
         connectionString: process.env.DB_URL,
-        ssl: { rejectUnauthorized: false }
+        ssl: true
     }
 );
 

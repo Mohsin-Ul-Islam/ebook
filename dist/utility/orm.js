@@ -40,6 +40,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var databaseConnection_1 = __importDefault(require("./databaseConnection"));
+/**
+ *
+ * @param id {number}
+ */
 function getWebpageDataById(id) {
     var _this = this;
     return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {

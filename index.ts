@@ -16,7 +16,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(sassMiddleware({
-    debug: true,
+    debug: process.env.NODE_ENV === 'development',
     src: path.join(__dirname, '../public/'),
     dest: path.join(__dirname, '../public/'),
     indentedSyntax: false,

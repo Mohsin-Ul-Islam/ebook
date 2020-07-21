@@ -1,5 +1,9 @@
 import client from './databaseConnection';
 
+/**
+ * 
+ * @param id {number}
+ */
 function getWebpageDataById(id: Number) {
     return new Promise(async (resolve, reject) => {
         try {

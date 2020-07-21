@@ -40,14 +40,29 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var orm_1 = __importDefault(require("../utility/orm"));
+/**
+ *
+ * @param req {express.Request}
+ * @param res {express.Response}
+ */
 function getPageById(req, res) {
     var pageId = Number.parseInt(req.params.id);
     renderPageById(res, pageId);
 }
+/**
+ *
+ * @param req {express.Request}
+ * @param res {express.Response}
+ */
 function getDefaultPage(req, res) {
     var defaultPageId = 1;
     renderPageById(res, defaultPageId);
 }
+/**
+ *
+ * @param res {express.Response}
+ * @param id {number}
+ */
 function renderPageById(res, id) {
     return __awaiter(this, void 0, void 0, function () {
         var data, err_1;

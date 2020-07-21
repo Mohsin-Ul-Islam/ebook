@@ -18,7 +18,7 @@ app.use(morgan_1.default('dev'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(node_sass_middleware_1.default({
-    debug: true,
+    debug: process.env.NODE_ENV === 'development',
     src: path_1.default.join(__dirname, '../public/'),
     dest: path_1.default.join(__dirname, '../public/'),
     indentedSyntax: false,

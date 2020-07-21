@@ -1,11 +1,13 @@
 import { Client } from 'pg';
 
-const clientInstance: Client = new Client(
-    {
-        connectionString: process.env.DB_URL,
-        ssl: false
+const clientInstance = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
     }
-);
+});
+
+
 
 clientInstance.connect()
     .then(() => {

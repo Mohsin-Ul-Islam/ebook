@@ -15,10 +15,12 @@ html {
 body {
     margin: 0;
     font-size: 1rem;
+    background-color: var(--body-color);
 }
 
 a {
     text-decoration: none;
+    color: var(--link-color);
 }
 
 ul {
@@ -33,7 +35,11 @@ h5,
 h6
 {
     font-family: var(--ff-primary);
-    color: black;
+    color: var(--heading-color);
+}
+
+p {
+    color: var(--para-color);
 }
 
 p,
@@ -41,7 +47,6 @@ a,
 span
 {
     font-family: var(--ff-secondary);
-    color: #3E373A
 }
 
 img {

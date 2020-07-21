@@ -7,8 +7,8 @@
 }
 
 .btn--primary {
-    color: white;
-    background-color: #F9A826;
+    color: var(--btn-color);
+    background-color: var(--btn-bgcolor);
 }
 
 .btn--primary:hover {
@@ -18,8 +18,8 @@
 }
 
 .btn-ghost {
-    color: white;
-    background-color:  #F9A826;
+    color: var(--btn-color);
+    background-color: var(--btn-bgcolor);
     opacity: 0.5;
 }
 

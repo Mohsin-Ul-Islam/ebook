@@ -5,8 +5,11 @@
     --ff-primary: "Poppins";
     --ff-secondary: "Raleway";
 
-    --clr-bg: #E5E5E5;
-    --clr-grey: rgba(62, 55, 58, 0.82);
+    --link-color: white;
+
+    --btn-bgcolor: #F9A826;
+    --btn-color: white;
+    --body-color: #E5E5E5;
 }
 
 @import "partials/normalize";
@@ -17,10 +20,7 @@
 @import "partials/footer";
 @import "partials/navigation";
 @import "sections/testimonial";
-
-body {
-    color: var(--clr-bg);
-}
+@import "partials/error";
 
 .preload {
     display: none;
@@ -50,7 +50,6 @@ body {
 }
 
 .section__caption {
-    color: #3E373A;
     margin: 1.5rem 0;
     font-size: 1rem;
     letter-spacing: 1px;

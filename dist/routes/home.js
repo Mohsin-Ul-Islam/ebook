@@ -6,5 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var home_1 = __importDefault(require("../controllers/home"));
 var router = express_1.default.Router();
-router.get('/', home_1.default.getHomePage);
+router.get('/', home_1.default.getDefaultPage);
+router.get('/:id', home_1.default.getPageById);
 exports.default = router;

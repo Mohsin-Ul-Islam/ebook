@@ -21,7 +21,7 @@
 
 .nav__link {
     position: relative;
-    color: #3E373A;
+    color: var(--link-color);
 }
 
 .nav__link::after {

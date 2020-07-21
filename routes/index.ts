@@ -1,8 +1,8 @@
 import express from 'express';
 import homeRouter from './home';
 
-const router: express.Router = express.Router();
+const app: express.Application = express();
 
-router.get('/', homeRouter);
+app.use('/', homeRouter);
 
-export default router;
+export default app;

@@ -39,35 +39,31 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var orm_1 = __importDefault(require("../utility/orm"));
-function getPageById(req, res) {
-    var pageId = Number.parseInt(req.params.id);
-    renderPageById(res, pageId);
-}
-function getDefaultPage(req, res) {
-    var defaultPageId = 1;
-    renderPageById(res, defaultPageId);
-}
-function renderPageById(res, id) {
-    return __awaiter(this, void 0, void 0, function () {
-        var data, err_1;
+var databaseConnection_1 = __importDefault(require("./databaseConnection"));
+function getWebpageDataById(id) {
+    var _this = this;
+    return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
+        var result, testimonials, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, orm_1.default.getWebpageDataById(id)];
+                    _a.trys.push([0, 3, , 4]);
+                    return [4 /*yield*/, databaseConnection_1.default.query('select * from webpage where id=$1;', [id])];
                 case 1:
-                    data = _a.sent();
-                    res.render('pages/home', { data: data });
-                    return [3 /*break*/, 3];
+                    result = _a.sent();
+                    return [4 /*yield*/, databaseConnection_1.default.query('select * from testimonials')];
                 case 2:
+                    testimonials = _a.sent();
+                    result.rows[0].testimonials = testimonials.rows;
+                    resolve(result.rows[0]);
+                    return [3 /*break*/, 4];
+                case 3:
                     err_1 = _a.sent();
-                    console.log(err_1.message);
-                    res.render('pages/error');
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                    reject(err_1);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
-    });
+    }); });
 }
-exports.default = { getPageById: getPageById, getDefaultPage: getDefaultPage };
+exports.default = { getWebpageDataById: getWebpageDataById };

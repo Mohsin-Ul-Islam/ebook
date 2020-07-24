@@ -21,10 +21,8 @@
         <main class="main">
             <section class="section container">
                 <article class="section__content">
-                    <h1 class="section__heading">
-                        <%=data.headings.heading_1%></h1>
-                    <p class="section__caption">
-                        <%=data.paragraphs.paragraph_1%></p>
+                    <h1 class="section__heading"><%=data.headings.heading_1%></h1>
+                    <p class="section__caption"><%=data.paragraphs.paragraph_1%></p>
                     <a href="#" class="btn btn--primary">Start now</a>
                 </article>
                 <figure class="section__figure">
@@ -34,8 +32,7 @@
             <section class=" sequel section container">
                 <article class="section__content">
                     <h2 class="section__heading section__heading--withbar"><%=data.headings.heading_2%></h2>
-                    <p class="section__caption">
-                        <%=data.paragraphs.paragraph_2%></p>
+                    <p class="section__caption"><%=data.paragraphs.paragraph_2%></p>
                 </article>
             </section>
             <section class="section container">
@@ -44,14 +41,13 @@
                 </figure>
                 <article class="section__content">
                     <h2 class="section__heading section__heading--withbar"><%=data.headings.heading_3%></h2>
-                    <p class="section__caption">
-                        <%=data.paragraphs.paragraph_3%></p>
+                    <p class="section__caption"><%=data.paragraphs.paragraph_3%></p>
                 </article>
             </section>
             <section class="section container">
                 <article class="section__content">
                     <h2 class="section__heading section__heading--withbar"><%=data.headings.heading_4%></h2>
-                    <section class="section container">
+                    <section class="section">
                         <article class="testimonials">
                             <% data.testimonials.forEach(function(testimonial,index){%>
                             <div class="<%=index==1?'testimonial testimonial--active':'testimonial'%>">
@@ -79,12 +75,10 @@
                     </section>
                 </article>
             </section>
-            <section class="section">
-                <article class="section__content section--last">
-                    <h2 class="section__heading center">
-                        <%=data.headings.heading_5%></h2>
-                    <p class="section__caption">
-                        <%=data.paragraphs.paragraph_4%></p>
+            <section class="section section--last">
+                <article class="section__content">
+                    <h2 class="section__heading center"><%=data.headings.heading_5%></h2>
+                    <p class="section__caption"><%=data.paragraphs.paragraph_4%></p>
                     <a href="#" class="btn btn--primary">Start now</a>
                 </article>
             </section>

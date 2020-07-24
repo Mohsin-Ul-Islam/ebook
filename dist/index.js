@@ -14,16 +14,18 @@ var app = express_1.default();
 app.set('views', path_1.default.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 app.use(helmet_1.default());
-app.use(morgan_1.default('dev'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
-app.use(node_sass_middleware_1.default({
-    debug: process.env.NODE_ENV === 'development',
-    src: path_1.default.join(__dirname, '../public/'),
-    dest: path_1.default.join(__dirname, '../public/'),
-    indentedSyntax: false,
-    sourceMap: true,
-}));
+if (app.get('env') === 'development') {
+    app.use(morgan_1.default('dev'));
+    app.use(node_sass_middleware_1.default({
+        debug: process.env.NODE_ENV === 'development',
+        src: path_1.default.join(__dirname, '../public/'),
+        dest: path_1.default.join(__dirname, '../public/'),
+        indentedSyntax: false,
+        sourceMap: true,
+    }));
+}
 app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
 app.use(index_1.default);
 app.listen(process.env.PORT, function () {

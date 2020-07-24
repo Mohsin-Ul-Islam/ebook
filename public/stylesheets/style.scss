@@ -5,10 +5,10 @@
     --ff-primary: "Poppins";
     --ff-secondary: "Raleway";
 
-    --link-color: white;
+    --link-color: #555;
 
-    --btn-bgcolor: #F9A826;
-    --btn-color: white;
+    --theme-color: #F9A826;
+    --theme-color-2: white;
     --body-color: #E5E5E5;
 }
 
@@ -46,7 +46,7 @@
     left: 0;
     width: 15%;
     height: 3px;
-    background-color: #F9A826;
+    background-color: var(--theme-color);
 }
 
 .section__caption {

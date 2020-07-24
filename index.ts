@@ -12,16 +12,20 @@ app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
 app.use(helmet());
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(sassMiddleware({
-    debug: process.env.NODE_ENV === 'development',
-    src: path.join(__dirname, '../public/'),
-    dest: path.join(__dirname, '../public/'),
-    indentedSyntax: false,
-    sourceMap: true,
-}));
+
+if (app.get('env') === 'development') {
+    app.use(logger('dev'));
+    app.use(sassMiddleware({
+        debug: process.env.NODE_ENV === 'development',
+        src: path.join(__dirname, '../public/'),
+        dest: path.join(__dirname, '../public/'),
+        indentedSyntax: false,
+        sourceMap: true,
+    }));
+}
+
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(routes);

@@ -47,11 +47,11 @@ var databaseConnection_1 = __importDefault(require("./databaseConnection"));
 function getWebpageDataById(id) {
     var _this = this;
     return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
-        var result, headings_id, paragraphs_id, colors_id, images_id, headings, paragraphs, colors, images, testimonials_result, testimonials, data, err_1;
+        var result, headings_id, paragraphs_id, colors_id, images_id, headings, paragraphs, colors, images, dynamic_assets, testimonials_result, testimonials, data, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 7, , 8]);
+                    _a.trys.push([0, 8, , 9]);
                     return [4 /*yield*/, databaseConnection_1.default.query('select * from webpages where id=$1;', [id])];
                 case 1:
                     result = _a.sent();
@@ -71,8 +71,11 @@ function getWebpageDataById(id) {
                     return [4 /*yield*/, getImagesById(images_id)];
                 case 5:
                     images = _a.sent();
-                    return [4 /*yield*/, databaseConnection_1.default.query('select * from testimonials')];
+                    return [4 /*yield*/, getAssetsByWebpageId(id)];
                 case 6:
+                    dynamic_assets = _a.sent();
+                    return [4 /*yield*/, databaseConnection_1.default.query('select * from testimonials')];
+                case 7:
                     testimonials_result = _a.sent();
                     testimonials = testimonials_result.rows;
                     data = {
@@ -80,15 +83,16 @@ function getWebpageDataById(id) {
                         paragraphs: paragraphs,
                         colors: colors,
                         testimonials: testimonials,
-                        images: images
+                        images: images,
+                        dynamic_assets: dynamic_assets
                     };
                     resolve(data);
-                    return [3 /*break*/, 8];
-                case 7:
+                    return [3 /*break*/, 9];
+                case 8:
                     err_1 = _a.sent();
                     reject(err_1);
-                    return [3 /*break*/, 8];
-                case 8: return [2 /*return*/];
+                    return [3 /*break*/, 9];
+                case 9: return [2 /*return*/];
             }
         });
     }); });
@@ -123,18 +127,20 @@ function getColorsById(id) {
  *
  * @param id {number}
  */
-function getImagesById(id) {
+function getAssetsByWebpageId(id) {
     var _this = this;
     return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
-        var result, err_3;
+        var result, scripts, stylesheets, err_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, databaseConnection_1.default.query('select * from images where id=$1;', [id])];
+                    return [4 /*yield*/, databaseConnection_1.default.query('select * from dynamic_assets where webpages_id=$1;', [id])];
                 case 1:
                     result = _a.sent();
-                    resolve(result.rows[0]);
+                    scripts = result.rows.filter(function (a) { return a.asset_type === 'script'; });
+                    stylesheets = result.rows.filter(function (a) { return a.asset_type === 'stylesheet'; });
+                    resolve({ scripts: scripts, stylesheets: stylesheets });
                     return [3 /*break*/, 3];
                 case 2:
                     err_3 = _a.sent();
@@ -149,7 +155,7 @@ function getImagesById(id) {
  *
  * @param id {number}
  */
-function getHeadingsById(id) {
+function getImagesById(id) {
     var _this = this;
     return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
         var result, err_4;
@@ -157,7 +163,7 @@ function getHeadingsById(id) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, databaseConnection_1.default.query('select * from headings where id=$1;', [id])];
+                    return [4 /*yield*/, databaseConnection_1.default.query('select * from images where id=$1;', [id])];
                 case 1:
                     result = _a.sent();
                     resolve(result.rows[0]);
@@ -175,10 +181,36 @@ function getHeadingsById(id) {
  *
  * @param id {number}
  */
-function getParagraphsById(id) {
+function getHeadingsById(id) {
     var _this = this;
     return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
         var result, err_5;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, databaseConnection_1.default.query('select * from headings where id=$1;', [id])];
+                case 1:
+                    result = _a.sent();
+                    resolve(result.rows[0]);
+                    return [3 /*break*/, 3];
+                case 2:
+                    err_5 = _a.sent();
+                    reject(err_5);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    }); });
+}
+/**
+ *
+ * @param id {number}
+ */
+function getParagraphsById(id) {
+    var _this = this;
+    return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
+        var result, err_6;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -189,8 +221,8 @@ function getParagraphsById(id) {
                     resolve(result.rows[0]);
                     return [3 /*break*/, 3];
                 case 2:
-                    err_5 = _a.sent();
-                    reject(err_5);
+                    err_6 = _a.sent();
+                    reject(err_6);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }

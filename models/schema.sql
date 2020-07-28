@@ -156,3 +156,23 @@ create table webpages
     foreign key (colors_id) references colors(id),
     foreign key (images_id) references images(id)
 );
+
+drop table if exists dynamic_assets;
+
+create table dynamic_assets
+(
+
+    -- unique id of the asset
+    id int not null,
+
+    -- type of the asset either stylesheet (.css file) or script (.js file)
+    asset_type varchar(10),
+
+    -- url to the asset
+    asset_url varchar(255),
+
+    -- array of ids of the webpages to which this asset is to be binded
+    webpages_id int,
+
+    foreign key (webpages_id) references webpages(id)
+);

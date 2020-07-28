@@ -1,4 +1,5 @@
 import client from './databaseConnection';
+import { QueryResult } from 'pg';
 
 /**
  * 
@@ -18,6 +19,7 @@ function getWebpageDataById(id: Number) {
             const paragraphs = await getParagraphsById(paragraphs_id);
             const colors = await getColorsById(colors_id);
             const images = await getImagesById(images_id);
+            const dynamic_assets = await getAssetsByWebpageId(id);
 
             const testimonials_result = await client.query('select * from testimonials');
 
@@ -28,7 +30,8 @@ function getWebpageDataById(id: Number) {
                 paragraphs,
                 colors,
                 testimonials,
-                images
+                images,
+                dynamic_assets
             };
 
             resolve(data);
@@ -49,6 +52,24 @@ function getColorsById(id: Number) {
         try {
             const result = await client.query('select * from colors where id=$1;', [id]);
             resolve(result.rows[0]);
+        }
+        catch (err) {
+            reject(err);
+        }
+    });
+}
+
+/**
+ * 
+ * @param id {number}
+ */
+function getAssetsByWebpageId(id: Number) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const result = await client.query('select * from dynamic_assets where webpages_id=$1;', [id]);
+            const scripts = result.rows.filter(a => a.asset_type === 'script');
+            const stylesheets = result.rows.filter(a => a.asset_type === 'stylesheet');
+            resolve({ scripts, stylesheets });
         }
         catch (err) {
             reject(err);

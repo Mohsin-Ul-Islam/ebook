@@ -171,7 +171,7 @@ create table dynamic_assets
     -- url to the asset
     asset_url varchar(255),
 
-    -- array of ids of the webpages to which this asset is to be binded
+    -- id of the webpages to which this asset is to be binded
     webpages_id int,
 
     foreign key (webpages_id) references webpages(id)

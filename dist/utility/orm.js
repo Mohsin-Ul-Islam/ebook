@@ -47,11 +47,11 @@ var databaseConnection_1 = __importDefault(require("./databaseConnection"));
 function getWebpageDataById(id) {
     var _this = this;
     return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
-        var result, headings_id, paragraphs_id, colors_id, images_id, headings, paragraphs, colors, images, dynamic_assets, testimonials_result, testimonials, data, err_1;
+        var result, headings_id, paragraphs_id, colors_id, images_id, links_id, headings, paragraphs, colors, images, links, dynamic_assets, testimonials_result, testimonials, data, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 8, , 9]);
+                    _a.trys.push([0, 9, , 10]);
                     return [4 /*yield*/, databaseConnection_1.default.query('select * from webpages where id=$1;', [id])];
                 case 1:
                     result = _a.sent();
@@ -59,6 +59,7 @@ function getWebpageDataById(id) {
                     paragraphs_id = result.rows[0].paragraphs_id;
                     colors_id = result.rows[0].colors_id;
                     images_id = result.rows[0].images_id;
+                    links_id = result.rows[0].links_id;
                     return [4 /*yield*/, getHeadingsById(headings_id)];
                 case 2:
                     headings = _a.sent();
@@ -71,11 +72,14 @@ function getWebpageDataById(id) {
                     return [4 /*yield*/, getImagesById(images_id)];
                 case 5:
                     images = _a.sent();
-                    return [4 /*yield*/, getAssetsByWebpageId(id)];
+                    return [4 /*yield*/, getLinksById(links_id)];
                 case 6:
+                    links = _a.sent();
+                    return [4 /*yield*/, getAssetsByWebpageId(id)];
+                case 7:
                     dynamic_assets = _a.sent();
                     return [4 /*yield*/, databaseConnection_1.default.query('select * from testimonials')];
-                case 7:
+                case 8:
                     testimonials_result = _a.sent();
                     testimonials = testimonials_result.rows;
                     data = {
@@ -84,15 +88,16 @@ function getWebpageDataById(id) {
                         colors: colors,
                         testimonials: testimonials,
                         images: images,
+                        links: links,
                         dynamic_assets: dynamic_assets
                     };
                     resolve(data);
-                    return [3 /*break*/, 9];
-                case 8:
+                    return [3 /*break*/, 10];
+                case 9:
                     err_1 = _a.sent();
                     reject(err_1);
-                    return [3 /*break*/, 9];
-                case 9: return [2 /*return*/];
+                    return [3 /*break*/, 10];
+                case 10: return [2 /*return*/];
             }
         });
     }); });
@@ -101,7 +106,7 @@ function getWebpageDataById(id) {
  *
  * @param id {number}
  */
-function getColorsById(id) {
+function getLinksById(id) {
     var _this = this;
     return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
         var result, err_2;
@@ -109,7 +114,7 @@ function getColorsById(id) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, databaseConnection_1.default.query('select * from colors where id=$1;', [id])];
+                    return [4 /*yield*/, databaseConnection_1.default.query('select * from links where id=$1;', [id])];
                 case 1:
                     result = _a.sent();
                     resolve(result.rows[0]);
@@ -127,20 +132,18 @@ function getColorsById(id) {
  *
  * @param id {number}
  */
-function getAssetsByWebpageId(id) {
+function getColorsById(id) {
     var _this = this;
     return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
-        var result, scripts, stylesheets, err_3;
+        var result, err_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, databaseConnection_1.default.query('select * from dynamic_assets where webpages_id=$1;', [id])];
+                    return [4 /*yield*/, databaseConnection_1.default.query('select * from colors where id=$1;', [id])];
                 case 1:
                     result = _a.sent();
-                    scripts = result.rows.filter(function (a) { return a.asset_type === 'script'; });
-                    stylesheets = result.rows.filter(function (a) { return a.asset_type === 'stylesheet'; });
-                    resolve({ scripts: scripts, stylesheets: stylesheets });
+                    resolve(result.rows[0]);
                     return [3 /*break*/, 3];
                 case 2:
                     err_3 = _a.sent();
@@ -155,18 +158,20 @@ function getAssetsByWebpageId(id) {
  *
  * @param id {number}
  */
-function getImagesById(id) {
+function getAssetsByWebpageId(id) {
     var _this = this;
     return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
-        var result, err_4;
+        var result, scripts, stylesheets, err_4;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, databaseConnection_1.default.query('select * from images where id=$1;', [id])];
+                    return [4 /*yield*/, databaseConnection_1.default.query('select * from dynamic_assets where webpages_id=$1;', [id])];
                 case 1:
                     result = _a.sent();
-                    resolve(result.rows[0]);
+                    scripts = result.rows.filter(function (a) { return a.asset_type === 'script'; });
+                    stylesheets = result.rows.filter(function (a) { return a.asset_type === 'stylesheet'; });
+                    resolve({ scripts: scripts, stylesheets: stylesheets });
                     return [3 /*break*/, 3];
                 case 2:
                     err_4 = _a.sent();
@@ -181,7 +186,7 @@ function getImagesById(id) {
  *
  * @param id {number}
  */
-function getHeadingsById(id) {
+function getImagesById(id) {
     var _this = this;
     return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
         var result, err_5;
@@ -189,7 +194,7 @@ function getHeadingsById(id) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, databaseConnection_1.default.query('select * from headings where id=$1;', [id])];
+                    return [4 /*yield*/, databaseConnection_1.default.query('select * from images where id=$1;', [id])];
                 case 1:
                     result = _a.sent();
                     resolve(result.rows[0]);
@@ -207,10 +212,36 @@ function getHeadingsById(id) {
  *
  * @param id {number}
  */
-function getParagraphsById(id) {
+function getHeadingsById(id) {
     var _this = this;
     return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
         var result, err_6;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, databaseConnection_1.default.query('select * from headings where id=$1;', [id])];
+                case 1:
+                    result = _a.sent();
+                    resolve(result.rows[0]);
+                    return [3 /*break*/, 3];
+                case 2:
+                    err_6 = _a.sent();
+                    reject(err_6);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    }); });
+}
+/**
+ *
+ * @param id {number}
+ */
+function getParagraphsById(id) {
+    var _this = this;
+    return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
+        var result, err_7;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -221,8 +252,8 @@ function getParagraphsById(id) {
                     resolve(result.rows[0]);
                     return [3 /*break*/, 3];
                 case 2:
-                    err_6 = _a.sent();
-                    reject(err_6);
+                    err_7 = _a.sent();
+                    reject(err_7);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }

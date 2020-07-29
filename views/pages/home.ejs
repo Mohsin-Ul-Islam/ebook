@@ -2,13 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <% data.dynamic_assets.stylesheets.forEach(function(sheet){%>
-    <link rel="stylesheet" href="<%=sheet.asset_url%>">
-    <%});%>
+    <%- include('../components/head', {data}) %>
 </head>
 
 <body style="<%='--body-color:'+data.colors.body_color + ';' +
@@ -22,14 +16,14 @@
 
     <div class="preload">
 
-        <%- include('../components/navigation') %>
+        <%- include('../components/navigation', {data}) %>
 
         <main class="main">
             <section class="section container">
                 <article class="section__content">
                     <h1 class="section__heading"><%=data.headings.heading_1%></h1>
                     <p class="section__caption"><%=data.paragraphs.paragraph_1%></p>
-                    <a href="#" class="btn btn--primary">Start now</a>
+                    <a href="<%=data.links.cta_2%>" class="btn btn--primary">Start now</a>
                 </article>
                 <figure class="section__figure">
                     <img src="<%=data.images.image_1%>" alt="">
@@ -50,7 +44,7 @@
                     <p class="section__caption"><%=data.paragraphs.paragraph_3%></p>
                 </article>
             </section>
-            <section class="section container">
+            <section class="section container" id="testimonials">
                 <article class="section__content">
                     <h2 class="section__heading section__heading--withbar"><%=data.headings.heading_4%></h2>
                     <section class="section">
@@ -85,12 +79,12 @@
                 <article class="section__content">
                     <h2 class="section__heading center"><%=data.headings.heading_5%></h2>
                     <p class="section__caption"><%=data.paragraphs.paragraph_4%></p>
-                    <a href="#" class="btn btn--primary">Start now</a>
+                    <a href="<%=data.links.cta_3%>" class="btn btn--primary">Start now</a>
                 </article>
             </section>
         </main>
 
-        <%- include('../components/footer') %>
+        <%- include('../components/footer', {data}) %>
     </div>
 
     <% data.dynamic_assets.scripts.forEach(function(js){%>

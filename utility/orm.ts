@@ -14,11 +14,13 @@ function getWebpageDataById(id: Number) {
             const paragraphs_id = result.rows[0].paragraphs_id;
             const colors_id = result.rows[0].colors_id;
             const images_id = result.rows[0].images_id;
+            const links_id = result.rows[0].links_id;
 
             const headings = await getHeadingsById(headings_id);
             const paragraphs = await getParagraphsById(paragraphs_id);
             const colors = await getColorsById(colors_id);
             const images = await getImagesById(images_id);
+            const links = await getLinksById(links_id);
             const dynamic_assets = await getAssetsByWebpageId(id);
 
             const testimonials_result = await client.query('select * from testimonials');
@@ -31,10 +33,28 @@ function getWebpageDataById(id: Number) {
                 colors,
                 testimonials,
                 images,
+                links,
                 dynamic_assets
             };
 
             resolve(data);
+        }
+        catch (err) {
+            reject(err);
+        }
+    });
+}
+
+
+/**
+ * 
+ * @param id {number}
+ */
+function getLinksById(id: Number) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const result = await client.query('select * from links where id=$1;', [id]);
+            resolve(result.rows[0]);
         }
         catch (err) {
             reject(err);

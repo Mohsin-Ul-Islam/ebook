@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Status</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <main>
+        <section class="section">
+            <article class="section__content container">
+                <% if (status) { %>
+                <h1 class="section__heading">Order Success</h1>
+                <p class="section__caption">Your book had been send to your email.</p>
+                <% } else { %>
+                <h1 class="section__heading">Order Failed</h1>
+                <p class="section__caption">Payment failed, please try again.</p>
+                <% } %>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

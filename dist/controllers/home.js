@@ -73,12 +73,12 @@ function renderPageById(res, id) {
                     return [4 /*yield*/, orm_1.default.getWebpageDataById(id)];
                 case 1:
                     data = _a.sent();
-                    res.render('pages/home', { data: data });
+                    res.render('layout', { page: 'home', data: data });
                     return [3 /*break*/, 3];
                 case 2:
                     err_1 = _a.sent();
                     console.log(err_1.message);
-                    res.render('pages/error');
+                    res.render('error');
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }

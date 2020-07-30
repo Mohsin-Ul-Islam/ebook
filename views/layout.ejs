@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <%- include('./components/head', {title:data.title,stylesheets: data.dynamic_assets.stylesheets}) %>
+</head>
+
+<body style="<%='--body-color:'+data.colors.body_color + ';' +
+'--theme-color:'+data.colors.theme_color + ';' + 
+'--heading-color:'+data.colors.headings_color + ';' + 
+'--paragraph-color:'+data.colors.paragraphs_color + ';' +
+'--link-color:'+data.colors.links_color + ';' +
+'--theme-color-2:'+data.colors.theme_color_2 + ';'%>">
+
+    <%- include('./components/loader') %>
+
+    <div class="preload">
+
+        <nav class="nav container">
+            <%- include('./components/navigation', {data}) %>
+        </nav>
+
+        <main class="main">
+            <%- include(`./pages/${page}`, {data}) %>
+        </main>
+
+        <footer class="footer">
+            <%- include('./components/footer', {data}) %>
+        </footer>
+
+    </div>
+
+    <% data.dynamic_assets.scripts.forEach(function(js){%>
+    <script src="<%=js.asset_url%>"></script>
+    <%});%>
+    <script src="/scripts/main.js"></script>
+</body>
+
+</html>

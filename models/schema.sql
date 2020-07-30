@@ -113,76 +113,6 @@ create table paragraphs
 
 );
 
-drop table if exists testimonials;
-
-create table testimonials
-(
-    -- unique id of a testimonial
-    id int not null,
-
-    -- heading of a testimonial
-    heading varchar(64),
-
-    -- caption of the testimonial
-    caption text,
-
-    primary key (id)
-);
-
-drop table if exists webpages;
-
-create table webpages
-(
-
-    -- endpoint id to be called with URL
-    id int not null,
-
-    -- id pointing to headings of this webpage
-    headings_id int,
-
-    -- id pointing to paragraphs of this webpage
-    paragraphs_id int,
-
-    -- id of colors to be used on this webpage
-    colors_id int,
-
-    -- id of images to be used on this webpage
-    images_id int,
-
-    -- id of links to be used on this webpage
-    links_id int,
-
-    primary key (id),
-
-    foreign key (headings_id) references headings(id),
-    foreign key (paragraphs_id) references paragraphs(id),
-    foreign key (colors_id) references colors(id),
-    foreign key (images_id) references images(id),
-    foreign key (links_id) references links(id)
-);
-
-drop table if exists dynamic_assets;
-
-create table dynamic_assets
-(
-
-    -- unique id of the asset
-    id int not null,
-
-    -- type of the asset either stylesheet (.css file) or script (.js file)
-    asset_type varchar(10),
-
-    -- url to the asset
-    asset_url varchar(255),
-
-    -- id of the webpages to which this asset is to be binded
-    webpages_id int,
-
-    primary key (id),
-
-    foreign key (webpages_id) references webpages(id)
-);
-
 drop table if exists links;
 
 create table links
@@ -214,4 +144,83 @@ create table links
 
     primary key (id)
 
+);
+
+drop table if exists webpages;
+
+create table webpages
+(
+
+    -- endpoint id to be called with URL
+    id int not null,
+
+    -- title of the webpage appearing in browser tab
+    title varchar (255) default 'Home',
+
+    -- id pointing to headings of this webpage
+    headings_id int,
+
+    -- id pointing to paragraphs of this webpage
+    paragraphs_id int,
+
+    -- id of colors to be used on this webpage
+    colors_id int,
+
+    -- id of images to be used on this webpage
+    images_id int,
+
+    -- id of links to be used on this webpage
+    links_id int,
+
+    primary key (id),
+
+    foreign key (headings_id) references headings(id),
+    foreign key (paragraphs_id) references paragraphs(id),
+    foreign key (colors_id) references colors(id),
+    foreign key (images_id) references images(id),
+    foreign key (links_id) references links(id)
+);
+
+drop table if exists testimonials;
+
+create table testimonials
+(
+    -- unique id of a testimonial
+    id int not null,
+
+    -- heading of a testimonial
+    heading varchar(64),
+
+    -- caption of the testimonial
+    caption text,
+
+    -- id of webpage to add testimonial to
+    webpages_id int,
+
+    primary key (id),
+
+    foreign key (webpages_id) references webpages(id)
+);
+
+
+drop table if exists dynamic_assets;
+
+create table dynamic_assets
+(
+
+    -- unique id of the asset
+    id int not null,
+
+    -- type of the asset either stylesheet (.css file) or script (.js file)
+    asset_type varchar(10),
+
+    -- url to the asset
+    asset_url varchar(255),
+
+    -- id of the webpage to which this asset is to be binded
+    webpages_id int,
+
+    primary key (id),
+
+    foreign key (webpages_id) references webpages(id)
 );

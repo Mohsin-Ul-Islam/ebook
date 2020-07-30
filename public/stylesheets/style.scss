@@ -20,6 +20,7 @@
 @import "partials/footer";
 @import "partials/navigation";
 @import "sections/testimonial";
+@import "sections/order";
 @import "partials/error";
 
 .preload {
@@ -106,6 +107,7 @@
     .section {
         padding: 100px 0;
         flex-direction: row;
+        justify-content: space-between;
     }
     .section__heading {
         font-size: 3rem;
@@ -117,6 +119,7 @@
     }
     .section__content {
         min-width: 340px;
+        width: 100%;
     }
     .section__figure {
         margin: 0 1.5rem;

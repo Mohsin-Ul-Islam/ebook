@@ -1,7 +1,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><%=data.title%></title>
+<title><%=title%></title>
 <link rel="stylesheet" href="/stylesheets/style.css">
-<% data.dynamic_assets.stylesheets.forEach(function(sheet){%>
+<%stylesheets.forEach(function(sheet){%>
 <link rel="stylesheet" href="<%=sheet.asset_url%>">
 <%});%>

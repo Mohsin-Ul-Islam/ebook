@@ -1,0 +1,20 @@
+.order {
+    width: 100%;
+    height: calc(100vh - 80px - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order__heading,
+.order__caption {
+    text-align: center;
+}
+
+.order__heading {
+    font-size: 3rem;
+}
+
+.order__caption {
+    font-size: 1.1rem;
+}

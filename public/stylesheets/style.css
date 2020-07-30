@@ -279,6 +279,23 @@ img {
   font-size: 2rem;
   font-weight: 600; }
 
+.order {
+  width: 100%;
+  height: calc(100vh - 80px - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.order__heading,
+.order__caption {
+  text-align: center; }
+
+.order__heading {
+  font-size: 3rem; }
+
+.order__caption {
+  font-size: 1.1rem; }
+
 .error {
   width: 100vw;
   height: 100vh;
@@ -360,7 +377,8 @@ img {
 @media screen and (min-width: 1024px) {
   .section {
     padding: 100px 0;
-    flex-direction: row; }
+    flex-direction: row;
+    justify-content: space-between; }
   .section__heading {
     font-size: 3rem;
     max-width: 80%; }
@@ -368,7 +386,8 @@ img {
     font-size: 1.1rem;
     max-width: 90%; }
   .section__content {
-    min-width: 340px; }
+    min-width: 340px;
+    width: 100%; }
   .section__figure {
     margin: 0 1.5rem; }
   .testimonial__heading {

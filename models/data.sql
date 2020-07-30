@@ -65,53 +65,67 @@ values
         '/assets/images/testimonials.svg'
     );
 
+-- then we add links to the webpage 1
+insert into links
+    (id,cta_1,cta_2,cta_3,cta_4,about,contact,testimonials)
+values
+    (1, '#', '#', '#', '#', '#about', '#contact', '#testimonials');
 
 -- with essential components being set, we now create the webpage itself
 insert into webpages
     (id,
+    title,
     headings_id,
     paragraphs_id,
     colors_id,
-    images_id)
+    images_id,
+    links_id)
 values
     (1,
+        'Book 1',
+        1,
         1,
         1,
         1,
         1);
 
--- our first endpoint is done here
--- we treat testimonials separately
+-- we add testimonials to webpage 1
 
 -- create a testimonial
 insert into testimonials
     (id,
     heading,
-    caption)
+    caption,
+    webpages_id)
 values
     (1,
         'Wow',
-        'Caption for first testimonial');
+        'Caption for first testimonial',
+        1);
 
 -- create a testimonial
 insert into testimonials
     (id,
     heading,
-    caption)
+    caption,
+    webpages_id)
 values
     (2,
         'Great',
-        'Caption for second testimonial');
+        'Caption for second testimonial',
+        1);
 
 -- create a testimonial
 insert into testimonials
     (id,
     heading,
-    caption)
+    caption,
+    webpages_id)
 values
     (3,
         'Awesome',
-        'Caption for third testimonial');
+        'Caption for third testimonial',
+        1);
 
 
 
@@ -176,14 +190,23 @@ values
         'https://images.unsplash.com/photo-1495106245177-55dc6f43e83f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
     );
 
+insert into links
+    (id)
+values
+    (2);
+
 insert into webpages
     (id,
+    title,
     headings_id,
     paragraphs_id,
     colors_id,
-    images_id)
+    images_id,
+    links_id)
 values
     (2,
+        'Book 2',
+        2,
         2,
         2,
         2,
@@ -251,14 +274,23 @@ values
         'https://image.freepik.com/free-vector/telecommuting-concept_23-2148496139.jpg'
     );
 
+insert into links
+    (id)
+values
+    (3);
+
 insert into webpages
     (id,
+    title,
     headings_id,
     paragraphs_id,
     colors_id,
-    images_id)
+    images_id,
+    links_id)
 values
     (3,
+        'Book 3',
+        3,
         3,
         3,
         3,

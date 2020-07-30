@@ -28,11 +28,11 @@ function getDefaultPage(req: any, res: any): void {
 async function renderPageById(res: any, id: Number) {
     try {
         const data = await orm.getWebpageDataById(id);
-        res.render('pages/home', { data });
+        res.render('layout', { page: 'home', data });
     }
     catch (err) {
         console.log(err.message);
-        res.render('pages/error');
+        res.render('error');
     }
 }
 
